@@ -1,0 +1,10 @@
+question
+Do you enforce multi-factor authentication for administrative access?
+Is your default production branch protected with required code reviews?
+Do you maintain audit logging for cloud infrastructure?
+Is customer data encrypted at rest in object storage?
+Do you use version control for all production code changes?
+Do you maintain a list of subprocessors and third-party vendors?
+Do you have a documented incident response process?
+Do you perform application security testing before release?
+Do you maintain backups and tested recovery for critical data?
