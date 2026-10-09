@@ -136,8 +136,10 @@ Deploy `backend/` using the included `Dockerfile`. Set these environment variabl
 | `SECRET_KEY` | a long random string (`openssl rand -hex 32`) |
 | `DATABASE_URL` | `sqlite:///./dealroom.db` (or a Postgres URL for production) |
 | `FRONTEND_URL` | your frontend origin, e.g. `https://dealroom-security.vercel.app` |
+| `FRONTEND_ORIGIN_REGEX` | *optional* regex for dynamic origins, e.g. `https://.*\.vercel\.app` |
 
 `FRONTEND_URL` accepts a comma-separated list, so you can allow several origins at once.
+Use `FRONTEND_ORIGIN_REGEX` to allow every Vercel preview deployment without listing each URL.
 
 ### 2. Frontend (Vercel / Netlify)
 
