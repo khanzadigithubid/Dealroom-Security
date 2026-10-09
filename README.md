@@ -121,6 +121,33 @@ docker compose up --build
 - API: http://localhost:8000
 - SQLite data is kept in the `dealroom-data` volume.
 
+## Deploy
+
+The frontend is a static SPA and the backend is a long-running API — deploy them separately
+(or use Docker on one host). A static host has no `/api` proxy, so the app **must** be told where
+the backend lives, otherwise every `/api/...` call returns `404`.
+
+### 1. Backend (Render, Railway, Fly.io …)
+
+Deploy `backend/` using the included `Dockerfile`. Set these environment variables:
+
+| Variable | Value |
+| --- | --- |
+| `SECRET_KEY` | a long random string (`openssl rand -hex 32`) |
+| `DATABASE_URL` | `sqlite:///./dealroom.db` (or a Postgres URL for production) |
+| `FRONTEND_URL` | your frontend origin, e.g. `https://dealroom-security.vercel.app` |
+
+`FRONTEND_URL` accepts a comma-separated list, so you can allow several origins at once.
+
+### 2. Frontend (Vercel / Netlify)
+
+- **Root directory:** `frontend`
+- **Build command:** `npm run build` → **Output:** `dist`
+- **Environment variable:** `VITE_API_BASE=https://your-backend-host` (no trailing slash)
+
+`frontend/vercel.json` (and `frontend/public/_redirects`) add the SPA rewrite so deep links like
+`/controls` work on refresh. After setting `VITE_API_BASE`, redeploy the frontend.
+
 ## Demo flow
 
 1. **Sign up** with a company name (creates the org + trust slug).

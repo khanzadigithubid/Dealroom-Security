@@ -9,6 +9,10 @@ class Settings(BaseSettings):
     database_url: str = "sqlite:///./dealroom.db"
     frontend_url: str = "http://localhost:5173"
 
+    @property
+    def cors_origins(self) -> list[str]:
+        return [o.strip() for o in self.frontend_url.split(",") if o.strip()]
+
     class Config:
         env_file = ".env"
 

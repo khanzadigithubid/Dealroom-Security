@@ -1,5 +1,9 @@
 const TOKEN_KEY = "dealroom_token";
 
+// In dev and Docker the API is same-origin (`/api`), so this defaults to "".
+// Set VITE_API_BASE to a full URL (e.g. https://api.example.com) for split deployments.
+const API_BASE = (import.meta.env.VITE_API_BASE ?? "").replace(/\/+$/, "");
+
 export function getToken(): string | null {
   return localStorage.getItem(TOKEN_KEY);
 }
@@ -58,7 +62,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   const token = getToken();
   if (token) headers.set("Authorization", `Bearer ${token}`);
 
-  const res = await fetch(path, { ...init, headers });
+  const res = await fetch(`${API_BASE}${path}`, { ...init, headers });
   if (!res.ok) {
     const err = await res.json().catch(() => ({ detail: res.statusText }));
     throw new Error(formatDetail(err.detail));
