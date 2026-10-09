@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="DealRoom Security">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="0.55" stop-color="#111c38"/>
+      <stop offset="1" stop-color="#1b1240"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#a855f7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.1" r="0.7">
+      <stop offset="0" stop-color="#7c3aed" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="320" fill="url(#bg)"/>
+  <rect width="1200" height="320" fill="url(#glow)"/>
+
+  <g transform="translate(90,78)">
+    <rect x="0" y="0" width="88" height="88" rx="20" fill="none" stroke="url(#accent)" stroke-width="3"/>
+    <path d="M44 20 L62 28 V46 C62 61 54 68 44 72 C34 68 26 61 26 46 V28 Z" fill="none" stroke="url(#accent)" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="44" cy="45" r="6" fill="url(#accent)"/>
+    <path d="M44 49 v10" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <text x="212" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="58" font-weight="700" fill="#f8fafc">
+    DealRoom<tspan fill="#38bdf8"> Security</tspan>
+  </text>
+  <text x="214" y="172" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#94a3b8">
+    Security questionnaire autopilot — scan, draft, and prove your controls.
+  </text>
+
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#cbd5e1">
+    <g transform="translate(214,206)">
+      <rect width="128" height="38" rx="19" fill="#0f172a" stroke="#1e293b"/>
+      <text x="64" y="25" text-anchor="middle">FastAPI</text>
+    </g>
+    <g transform="translate(354,206)">
+      <rect width="132" height="38" rx="19" fill="#0f172a" stroke="#1e293b"/>
+      <text x="66" y="25" text-anchor="middle">React + TS</text>
+    </g>
+    <g transform="translate(498,206)">
+      <rect width="104" height="38" rx="19" fill="#0f172a" stroke="#1e293b"/>
+      <text x="52" y="25" text-anchor="middle">Docker</text>
+    </g>
+    <g transform="translate(614,206)">
+      <rect width="196" height="38" rx="19" fill="#0f172a" stroke="#1e293b"/>
+      <text x="98" y="25" text-anchor="middle">59 automated tests</text>
+    </g>
+  </g>
+</svg>
